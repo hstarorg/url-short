@@ -1,0 +1,11 @@
+.container{
+  margin-top: 10%;
+}
+
+.margin-top-20{
+  margin-top: 20px;
+}
+
+#error-div, #result-div{
+  display: none;
+}
