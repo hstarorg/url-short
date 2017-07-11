@@ -1,5 +1,5 @@
 const path = require('path');
-const Koa = require('Koa');
+const Koa = require('koa');
 const helmet = require('koa-helmet');
 const static = require('koa-static');
 const logger = require('koa-logger');
