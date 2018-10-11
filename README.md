@@ -18,7 +18,7 @@ npm run build
 
 # Changelog
 
-### 0.2.0
+### 0.2.0 (2018-10-11)
 
 * Change cdn and favicon
 * Upgrade deps
