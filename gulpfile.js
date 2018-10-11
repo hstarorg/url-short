@@ -53,8 +53,8 @@ gulp.task('watch', done => {
 gulp.task('dev', gulp.series('clean', 'copy', gulp.parallel('serve', 'watch')));
 
 gulp.task('installDeps', done => {
-  cd('dist');
-  exec('npm i --production');
+  shelljs.cd('dist');
+  shelljs.exec('npm i --production');
   done();
 });
 
