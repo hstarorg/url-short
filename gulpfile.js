@@ -1,5 +1,5 @@
-require('shelljs/global');
-const gulp = require('gulp4');
+const shelljs = require('shelljs');
+const gulp = require('gulp');
 const developServer = require('gulp-develop-server');
 const newer = require('gulp-newer');
 const notifier = require('node-notifier');
@@ -13,20 +13,18 @@ const notify = message => {
 const distFolder = 'dist';
 
 gulp.task('clean', done => {
-  rm('-rf', distFolder);
+  shelljs.rm('-rf', distFolder);
   done();
 });
 
 gulp.task('clean.routes', done => {
-  rm('-rf', `${distFolder}/routes`);
+  shelljs.rm('-rf', `${distFolder}/routes`);
   done();
 });
 
 gulp.task('copy', () => {
-  return gulp.src([
-    'src/**/*',
-    'package.json'
-  ])
+  return gulp
+    .src(['src/**/*', 'package.json'])
     .pipe(newer(distFolder))
     .pipe(gulp.dest(distFolder));
 });
@@ -48,17 +46,11 @@ gulp.task('restart', done => {
 });
 
 gulp.task('watch', done => {
-  gulp.watch([
-    'src/**/*'
-  ], { debounceDelay: 2000 }, gulp.series('clean.routes', 'copy', 'restart'));
+  gulp.watch(['src/**/*'], { debounceDelay: 2000 }, gulp.series('clean.routes', 'copy', 'restart'));
   done();
 });
 
-gulp.task('dev', gulp.series(
-  'clean',
-  'copy',
-  gulp.parallel('serve', 'watch')
-));
+gulp.task('dev', gulp.series('clean', 'copy', gulp.parallel('serve', 'watch')));
 
 gulp.task('installDeps', done => {
   cd('dist');
@@ -66,8 +58,4 @@ gulp.task('installDeps', done => {
   done();
 });
 
-gulp.task('build', gulp.series(
-  'clean',
-  'copy',
-  'installDeps'
-));
+gulp.task('build', gulp.series('clean', 'copy', 'installDeps'));

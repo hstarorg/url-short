@@ -13,7 +13,11 @@ const app = new Koa();
 
 // Load middleware
 app.use(logger());
-app.use(error());
+const errOpt = {};
+if (!config.debug) {
+  errOpt.template = path.join(__dirname, 'templates/error.html');
+}
+app.use(error(errOpt));
 app.use(responseTime());
 app.use(helmet());
 app.use(static(path.join(__dirname, '..', 'public')));
@@ -22,7 +26,7 @@ app.use(bodyParser());
 util.loadRoutes(app, config.routesPath);
 
 // Process 404
-app.use((ctx) => {
+app.use(ctx => {
   ctx.throw(404, 'not found.');
 });
 
