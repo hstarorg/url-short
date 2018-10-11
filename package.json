@@ -1,6 +1,6 @@
 {
   "name": "url-short",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Short url service",
   "main": "index.js",
   "scripts": {
