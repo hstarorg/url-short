@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
@@ -8,19 +8,19 @@
   <base href="/">
   <title>短网址服务 :: t.hstar.org</title>
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.4.1/dist/css/bootstrap.min.css"
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
   <div class="container">
-    <h1 class="text-center">hstar.org 短网址服务</h1>
-    <div class="col-md-8 col-md-offset-2">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="请输入要缩短的网址" id="url-input">
+    <h1 class="text-center">hstar URL-Shorten</h1>
+    <div class="col-md-8 col-md-offset-2 col col-8">
+      <div class="input-group form-group">
+        <input type="text" class="form-control input-block" placeholder="请输入要缩短的网址" id="url-input">
         <span class="input-group-btn">
-          <button class="btn btn-primary" id="btn-short">
+          <button class="btn btn-primary paper-btn" id="btn-short">
             <!--<i class="glyphicon glyphicon-fire"></i> -->
             缩短网址
           </button>

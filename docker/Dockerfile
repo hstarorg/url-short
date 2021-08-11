@@ -1,4 +1,4 @@
-FROM node:8.1.0-alpine
+FROM node:14.17.4-alpine
 
 MAINTAINER hstarorg hm910705@163.com
 
